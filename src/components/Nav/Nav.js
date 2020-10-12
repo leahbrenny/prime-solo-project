@@ -31,8 +31,17 @@ const Nav = (props) => {
         {/* Show the link to the info page and the logout button if the user is logged in */}
         {props.store.user.id && (
           <>
-            <Link className="nav-link" to="/info">
-              Info Page
+            <Link className="nav-link" to="/rooms">
+              Your Rooms
+            </Link>
+            <Link className="nav-link" to="/favorites">
+              Favorites
+            </Link>
+            <Link className="nav-link" to="/plants">
+              Your Plants
+            </Link>
+            <Link className="nav-link" to="/search">
+              Search
             </Link>
             <LogOutButton className="nav-link" />
           </>
