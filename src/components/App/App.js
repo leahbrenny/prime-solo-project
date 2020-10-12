@@ -12,15 +12,16 @@ import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
-
+import PlantsPage from '../PlantsPage/PlantsPage';
 import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-
+import FavoritesPage from '../FavoritesPage/Favorites';
 import './App.css';
+import RoomsPage from '../RoomsPage/RoomsPage';
+import SearchPage from '../SearchPage/SearchPage';
 
 class App extends Component {
   componentDidMount() {
@@ -34,13 +35,13 @@ class App extends Component {
           <Nav />
           <Switch>
             {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
-            <Redirect exact from="/" to="/home" />
+            <Redirect exact from='/' to='/home' />
 
             {/* Visiting localhost:3000/about will show the about page. */}
             <Route
               // shows AboutPage at all times (logged in or not)
               exact
-              path="/about"
+              path='/about'
               component={AboutPage}
             />
 
@@ -51,15 +52,36 @@ class App extends Component {
             <ProtectedRoute
               // logged in shows UserPage else shows LoginPage
               exact
-              path="/user"
+              path='/user'
               component={UserPage}
             />
 
             <ProtectedRoute
               // logged in shows InfoPage else shows LoginPage
               exact
-              path="/info"
-              component={InfoPage}
+              path='/rooms'
+              component={RoomsPage}
+            />
+
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path='/favorites'
+              component={FavoritesPage}
+            />
+
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path='/plants'
+              component={PlantsPage}
+            />
+
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path='/search'
+              component={SearchPage}
             />
 
             {/* When a value is supplied for the authRedirect prop the user will
@@ -70,27 +92,27 @@ class App extends Component {
               // - if logged in, redirects to "/user"
               // - else shows LoginPage at /login
               exact
-              path="/login"
+              path='/login'
               component={LoginPage}
-              authRedirect="/user"
+              authRedirect='/user'
             />
             <ProtectedRoute
               // with authRedirect:
               // - if logged in, redirects to "/user"
               // - else shows RegisterPage at "/registration"
               exact
-              path="/registration"
+              path='/registration'
               component={RegisterPage}
-              authRedirect="/user"
+              authRedirect='/user'
             />
             <ProtectedRoute
               // with authRedirect:
               // - if logged in, redirects to "/user"
               // - else shows LandingPage at "/home"
               exact
-              path="/home"
+              path='/home'
               component={LandingPage}
-              authRedirect="/user"
+              authRedirect='/user'
             />
 
             {/* If none of the other routes matched, we will show a 404. */}
