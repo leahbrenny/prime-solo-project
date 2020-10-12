@@ -18,7 +18,7 @@ import UserPage from '../UserPage/UserPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import FavoritesPage from '../FavoritesPage/Favorites';
+import FavoritesPage from '../FavoritesPage/FavoritesPage';
 import './App.css';
 import RoomsPage from '../RoomsPage/RoomsPage';
 import SearchPage from '../SearchPage/SearchPage';
