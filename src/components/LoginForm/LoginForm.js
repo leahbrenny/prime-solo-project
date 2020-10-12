@@ -6,6 +6,7 @@ class LoginForm extends Component {
   state = {
     username: '',
     password: '',
+    email: ''
   };
 
   login = (event) => {
@@ -17,6 +18,7 @@ class LoginForm extends Component {
         payload: {
           username: this.state.username,
           password: this.state.password,
+          email: this.state.email
         },
       });
     } else {
@@ -60,6 +62,18 @@ class LoginForm extends Component {
               required
               value={this.state.password}
               onChange={this.handleInputChangeFor('password')}
+            />
+          </label>
+        </div>
+        <div>
+          <label htmlFor="email">
+            Email:
+            <input
+              type="email"
+              name="email"
+              required
+              value={this.state.email}
+              onChange={this.handleInputChangeFor('email')}
             />
           </label>
         </div>

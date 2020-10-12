@@ -9,6 +9,7 @@ class RegisterPage extends Component {
   state = {
     username: '',
     password: '',
+    email: ''
   };
 
   render() {
