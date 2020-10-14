@@ -1,3 +1,9 @@
-select{
-    flex: c;
+.roomSelect{
+    margin-left: 10%;
+    display: inline;
+}
+
+.roomReturn{
+    margin-left: 20%;
+    display: inline-block;
 }

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import './FavoritesPage.css';
+import FavoriteIcon from '@material-ui/icons/Favorite';
+import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 
 class FavoritesPage extends Component {
   state = {
@@ -9,13 +12,13 @@ class FavoritesPage extends Component {
 
   render() {
     return (
-      <div>
+      <div className="container">
         <h2>{this.state.heading}</h2>
         <ul>
-          <li>favorite plant 1 <button>Unfavorite</button></li>
-          <li>favorite plant 2 <button>Unfavorite</button></li>
-          <li>favorite plant 3 <button>Unfavorite</button></li>
-          <li>favorite plant 4 <button>Unfavorite</button></li>
+          <li>favorite plant 1 <button className="favorite"><FavoriteIcon>Heart</FavoriteIcon></button></li>
+          <li>favorite plant 2 <button className="favorite">Heart</button></li>
+          <li>favorite plant 3 <button className="favorite">Heart</button></li>
+          <li>favorite plant 4 <button className="favorite">Heart</button></li>
         </ul>
       </div>
     );
