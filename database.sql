@@ -66,13 +66,19 @@ VALUES
 (4, 4),
 (1, 5);
 
+INSERT INTO "user" ("username", "password", "email")
+VALUES
+('test1', 'hahaha', 'test1@test.com'),
+('test2', 'hahaha', 'test2@test.com');
+
+
 --shows coorisponding user id and room name
 SELECT "user"."id" as "user",
 	"room"."room_name" as "room"
 FROM "room"
 JOIN "user" ON "user"."id" = "room"."user_id";
 
---
+--selects user room and plant
 SELECT "user"."id" as "user", 
 "room"."room_name" as "room", 
 "plant"."plant_name" as "plant"
@@ -80,3 +86,6 @@ FROM "user"
 JOIN "room" ON "user"."id" = "room"."user_id"
 JOIN "room_plant" ON "room"."id" = "room_plant"."room_id"
 JOIN "plant" ON "plant"."id" = "room_plant"."plant_id";
+
+--add
+WHERE "user"."id" = `$1`

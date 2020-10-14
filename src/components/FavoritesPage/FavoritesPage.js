@@ -16,9 +16,9 @@ class FavoritesPage extends Component {
         <h2>{this.state.heading}</h2>
         <ul>
           <li>favorite plant 1 <button className="favorite"><FavoriteIcon>Heart</FavoriteIcon></button></li>
-          <li>favorite plant 2 <button className="favorite">Heart</button></li>
-          <li>favorite plant 3 <button className="favorite">Heart</button></li>
-          <li>favorite plant 4 <button className="favorite">Heart</button></li>
+          <li>favorite plant 2 <button className="favorite"><FavoriteIcon>Heart</FavoriteIcon></button></li>
+          <li>favorite plant 3 <button className="favorite"><FavoriteBorderIcon>Heart</FavoriteBorderIcon></button></li>
+          <li>favorite plant 4 <button className="favorite"><FavoriteBorderIcon>Heart</FavoriteBorderIcon></button></li>
         </ul>
       </div>
     );

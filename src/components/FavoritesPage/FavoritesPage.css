@@ -9,3 +9,8 @@
 li{
     list-style: none;
 }
+ .favorite{
+     background: transparent;
+     border: transparent;
+     color: red;
+ }
