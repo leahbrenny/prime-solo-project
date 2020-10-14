@@ -15,14 +15,10 @@ CREATE TABLE "user" (
 
 CREATE TABLE "room" (
     "id" SERIAL PRIMARY KEY,
+    "user_id" INT,
     "room_name" VARCHAR (80) NOT NULL,
     "light" INT,
     "humidity" INT
-);
-
-CREATE TABLE "user_room" (
-    "user_id" INT,
-    "room_id" INT
 );
 
 CREATE TABLE "plant" (
@@ -45,32 +41,42 @@ CREATE TABLE "room_plant" (
 );
 
 --test values
-INSERT INTO "user" ("username", "password", "email")
-VALUES
-('tester', 'testing', 'tester@test.com');
+--register two users
 
-INSERT INTO "room" ("room_name", "light", "humidity")
+INSERT INTO "room" ("user_id", "room_name", "light", "humidity")
 VALUES
-('test room', 5, 3);
+(1, 'test room', 5, 3),
+(2, 'second test room', 3, 6),
+(2, 'third test room', 6, 1),
+(1, 'fourth test room', 2, 4);
 
 INSERT INTO "plant" ("id", "plant_name", "plant_img", "ph_min" , "ph_max" , "light" , "toxicity" , "temp_min" , "temp_max" , "soil_humidity" , "favorite" )
 VALUES
-(423071, 'test plant', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/daisy-flower-1532449822.jpg?crop=1.00xw:0.892xh;0,0&resize=1200:*', 4.5, 8, 4, 'medium', 52, 112, 3, false);
-
-INSERT INTO "user_room" ("user_id", "room_id")
-VALUES
-(1, 1);
+(423071, 'test plant', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/daisy-flower-1532449822.jpg?crop=1.00xw:0.892xh;0,0&resize=1200:*', 4.5, 8, 4, 'medium', 52, 112, 3, false),
+(666666, 'second test plant', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/daisy-flower-1532449822.jpg?crop=1.00xw:0.892xh;0,0&resize=1200:*', 4.5, 8, 4, 'medium', 52, 112, 3, false),
+(123456, 'third test plant', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/daisy-flower-1532449822.jpg?crop=1.00xw:0.892xh;0,0&resize=1200:*', 4.5, 8, 4, 'medium', 52, 112, 3, false),
+(098765, 'fourth test plant', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/daisy-flower-1532449822.jpg?crop=1.00xw:0.892xh;0,0&resize=1200:*', 4.5, 8, 4, 'medium', 52, 112, 3, false),
+(777777, 'fifth test plant', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/daisy-flower-1532449822.jpg?crop=1.00xw:0.892xh;0,0&resize=1200:*', 4.5, 8, 4, 'medium', 52, 112, 3, false);
 
 INSERT INTO "room_plant" ("room_id", "plant_id")
 VALUES
-(1, 423071);
+(1, 423071),
+(3, 666666),
+(2, 123456),
+(4, 098765),
+(1, 777777);
 
---shows just user_id and room_id
-SELECT 
-	"user"."id" as "user_id", 
-	"room"."id" as "room_id" 
-FROM "users_room"
-JOIN "user" 
-	ON "user"."id" = "user_room"."user_id"
-JOIN "room"
-	ON "room"."id" = "user_room"."room_id";
+--shows coorisponding user id and room name
+SELECT "user"."id" as "user",
+	"room"."room_name" as "room"
+FROM "room"
+JOIN "user" ON "user"."id" = "room"."user_id";
+
+--
+SELECT "user"."id" as "user", 
+"room"."room_name" as "room", 
+"plant"."plant_name" as "plant"
+FROM "user"
+JOIN "room" ON "user"."id" = "room"."user_id"
+JOIN "room_plant" ON "room"."id" = "room_plant"."room_id"
+JOIN "plant" ON "plant"."id" = "room_plant"."plant_id";

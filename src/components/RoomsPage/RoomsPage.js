@@ -12,9 +12,14 @@ class RoomsPage extends Component {
   };
 
   render() {
+    console.log('rooms page store', this.props);
+    
     return (
       <div>
         <h2>{this.state.heading}</h2>
+      <select>
+        <option>{this.props.store.user.id}</option>
+      </select>
       </div>
     );
   }
