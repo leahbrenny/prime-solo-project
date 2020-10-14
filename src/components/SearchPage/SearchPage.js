@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import './SearchPage.css';
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
@@ -8,13 +9,20 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 // component.
 class SearchPage extends Component {
   state = {
-    heading: 'Search Page',
+    heading: 'Plant Search',
   };
 
   render() {
     return (
       <div>
         <h2>{this.state.heading}</h2>
+        <div className= "searchBar">
+          <input className= "searchField" type='search' placeholder='What are you looking for?' />
+          <button className= "searchButton" type='submit'>Search</button>
+        </div>
+        <div className="searchResultBody">
+        <p>Search results go here</p>
+        </div>
       </div>
     );
   }

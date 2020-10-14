@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import './RoomsPage.js';
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
@@ -17,8 +18,11 @@ class RoomsPage extends Component {
     return (
       <div>
         <h2>{this.state.heading}</h2>
-      <select>
-        <option>{this.props.store.user.id}</option>
+      <select className= "roomSelect">
+        <option>Room 1</option>
+        <option>Room 2</option>
+        <option>Room 3</option>
+        <option>Room 4</option>
       </select>
       </div>
     );

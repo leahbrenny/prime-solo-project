@@ -8,7 +8,14 @@ import React from 'react';
 const AboutPage = () => (
   <div className="container">
     <div>
-      <p>This about page is for anyone to read!</p>
+      <h1>About Planter</h1>
+      <h4>A House Plant Planner</h4>
+      <p>
+        Planter is an application to help house plant owners keep track
+        of their various plants. Favorite plants to save for later or find
+        new plants to get on the search page.
+      </p>
+      <h3>Enjoy!</h3>
     </div>
   </div>
 );

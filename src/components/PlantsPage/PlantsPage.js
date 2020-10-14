@@ -15,6 +15,13 @@ class PlantsPage extends Component {
     return (
       <div>
         <h2>{this.state.heading}</h2>
+        <ul>
+          <li>plant 1</li>
+          <li>plant 2</li>
+          <li>plant 3</li>
+          <li>plant 4</li>
+          <li>plant 5</li>
+        </ul>
       </div>
     );
   }
