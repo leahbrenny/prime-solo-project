@@ -48,7 +48,10 @@ VALUES
 (1, 'test room', 5, 3),
 (2, 'second test room', 3, 6),
 (2, 'third test room', 6, 1),
-(1, 'fourth test room', 2, 4);
+(1, 'fourth test room', 2, 4),
+(3, 'fifth room', 1, 2),
+(3, 'sixth room', 3, 3),
+(3, 'seventh room', 7, 4);
 
 INSERT INTO "plant" ("plant_name", "plant_img", "ph_min" , "ph_max" , "light" , "toxicity" , "temp_min" , "temp_max" , "soil_humidity" , "favorite" )
 VALUES
@@ -64,7 +67,10 @@ VALUES
 (3, 2),
 (2, 3),
 (4, 4),
-(1, 5);
+(1, 5),
+(5, 2),
+(6, 4),
+(7, 1);
 
 INSERT INTO "user" ("username", "password", "email")
 VALUES
@@ -89,3 +95,12 @@ JOIN "plant" ON "plant"."id" = "room_plant"."plant_id";
 
 --add
 WHERE "user"."id" = `$1`
+
+--gets plant image and name for logged in user
+SELECT  "plant"."plant_img" as "image",
+  "plant"."plant_name" as "plant"
+  FROM "user"
+  JOIN "room" ON "user"."id" = "room"."user_id"
+  JOIN "room_plant" ON "room"."id" = "room_plant"."room_id"
+  JOIN "plant" ON "plant"."id" = "room_plant"."plant_id"
+  WHERE "user"."id" = $1;
