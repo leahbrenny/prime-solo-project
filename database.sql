@@ -104,3 +104,10 @@ SELECT  "plant"."plant_img" as "image",
   JOIN "room_plant" ON "room"."id" = "room_plant"."room_id"
   JOIN "plant" ON "plant"."id" = "room_plant"."plant_id"
   WHERE "user"."id" = $1;
+
+
+--gets user's rooms
+  SELECT  "room"."room_name" as "room"
+  FROM "user"
+  JOIN "room" ON "user"."id" = "room"."user_id"
+  WHERE "user"."id" = $1;

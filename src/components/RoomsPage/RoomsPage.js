@@ -11,19 +11,23 @@ class RoomsPage extends Component {
   state = {
     heading: 'Rooms Page',
   };
+  componentDidMount = () => {
+    this.props.dispatch({
+      type: 'FETCH_ROOMS',
+      payload: `${this.props.store.user.id}`
+    })
+  }
 
   render() {
-    console.log('rooms page store', this.props);
+    console.log('rooms page store', this.props.store);
 
     return (
       <div>
         <h2>{this.state.heading}</h2>
         <div className='roomSelect'>
           <select>
-            <option>Room 1</option>
-            <option>Room 2</option>
-            <option>Room 3</option>
-            <option>Room 4</option>
+            {this.props.store.room.map( item =>
+              <option key={item.id}>{item.room}</option>)}
           </select>
         </div>
         <div className='roomReturn'>

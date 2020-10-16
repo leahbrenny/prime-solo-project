@@ -3,17 +3,6 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
 class UserPage extends Component {
-  // this component doesn't do much to start, just renders some user info to the DOM
-  // componentDidMount() {
-  //   console.log("in componentDidMount");
-  //   this.getPlants();
-  // }
-
-  // getPlants = () => {
-  //   this.props.dispatch({
-  //     type: "FETCH_PLANTS",
-  //   });
-  // }
 
   render() {
     console.log('trying to find plant', this.props);
