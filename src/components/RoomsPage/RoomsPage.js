@@ -29,9 +29,14 @@ class RoomsPage extends Component {
             {this.props.store.room.map( item =>
               <option key={item.id}>{item.room}</option>)}
           </select>
+          <button>+New Room</button>
         </div>
         <div className='roomReturn'>
           <p>Room data will go here</p>
+        </div>
+        <div>
+          <button>Edit</button>
+          <button>Delete</button>
         </div>
       </div>
     );

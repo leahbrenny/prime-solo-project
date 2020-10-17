@@ -6,7 +6,8 @@ const router = express.Router();
 router.get('/:id', (req, res) => {
   console.log('body in room GET', req.body, req.params.id);
   //query selects plant img html and plant name for user
-  let query = `SELECT  "room"."room_name" as "room"
+  let query = `SELECT  "room"."room_name" as "room",
+  "room"."id" as "id"
   FROM "user"
   JOIN "room" ON "user"."id" = "room"."user_id"
   WHERE "user"."id" = $1;`;

@@ -5,9 +5,10 @@ const router = express.Router();
 
 router.get('/:id', (req, res) => {
   console.log('body in GET', req.body, req.params.id);
-  //query selects plant img html and plant name for user
+  //query selects plant img, plant name, and id for user
   let query = `SELECT  "plant"."plant_img" as "image",
-  "plant"."plant_name" as "plant"
+  "plant"."plant_name" as "plant",
+  "plant"."id" as "id"
   FROM "user"
   JOIN "room" ON "user"."id" = "room"."user_id"
   JOIN "room_plant" ON "room"."id" = "room_plant"."room_id"
