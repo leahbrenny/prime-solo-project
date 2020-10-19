@@ -10,8 +10,7 @@ import { Link } from 'react-router-dom';
 // component.
 class RoomsPage extends Component {
   state = {
-    heading: 'Rooms Page',
-    roomId: '',
+    heading: 'Rooms Page'
   };
 
   componentDidMount = () => {
@@ -22,15 +21,11 @@ class RoomsPage extends Component {
   };
 
   onRoomChange = (event, property) => {
-    console.log('tried to select a room', property, event.target.value);
-    this.setState({
-      [property]: event.target.value,
+    console.log('tried to select a room', event.target.value);
+    this.props.dispatch({
+      type: 'FETCH_ROOMPLANTS',
+      payload: event.target.value,
     });
-    this.displayRoom();
-  };
-
-  displayRoom = () => {
-    console.log('want to display', this.state);
   };
 
   confirmDeleteRoom = () => {
@@ -58,7 +53,10 @@ class RoomsPage extends Component {
           </div>
         </div>
         <div className='roomReturn'>
-          <p>Room data will go here</p>
+        <ul>
+        {this.props.store.roomplant.map( item =>
+            <li key={item.id}> <img width="200px" src={item.image}></img>{item.plant}</li>)}
+            </ul>
         </div>
         <div>
           <Link to='/editroom'>

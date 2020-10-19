@@ -5,6 +5,7 @@ import userSaga from './user.saga';
 import plantSaga from './plant.saga';
 import roomSaga from './room.saga';
 import favoriteSaga from './favorite.saga';
+import roomPlantSaga from './roomplant.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -21,5 +22,6 @@ export default function* rootSaga() {
     plantSaga(),
     roomSaga(),
     favoriteSaga(),
+    roomPlantSaga(),
   ]);
 }

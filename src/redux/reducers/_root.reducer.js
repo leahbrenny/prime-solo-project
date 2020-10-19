@@ -4,6 +4,7 @@ import user from './user.reducer';
 import plant from './plant.reducer';
 import room from './room.reducer';
 import favorite from './favorite.reducer';
+import roomplant from './roomplant.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   plant, //contains user plants
   room, //contains user rooms
   favorite, //contains user favorites
+  roomplant, //contains plants in selected room
 });
 
 export default rootReducer;
