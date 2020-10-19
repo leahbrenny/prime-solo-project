@@ -98,7 +98,8 @@ WHERE "user"."id" = `$1`
 
 --gets plant image and name for logged in user
 SELECT  "plant"."plant_img" as "image",
-  "plant"."plant_name" as "plant"
+  "plant"."plant_name" as "plant",
+  "plant"."id" as "id"
   FROM "user"
   JOIN "room" ON "user"."id" = "room"."user_id"
   JOIN "room_plant" ON "room"."id" = "room_plant"."room_id"
@@ -113,8 +114,10 @@ SELECT  "plant"."plant_img" as "image",
   WHERE "user"."id" = $1;
 
 --gets user's favorite plants
-  SELECT  "plant"."plant_img" as "image",
-  "plant"."plant_name" as "plant"
+SELECT  "plant"."plant_img" as "image",
+  "plant"."plant_name" as "plant",
+  "plant"."id" as "id",
+  "plant"."favorite" as "favorite"
   FROM "user"
   JOIN "room" ON "user"."id" = "room"."user_id"
   JOIN "room_plant" ON "room"."id" = "room_plant"."room_id"

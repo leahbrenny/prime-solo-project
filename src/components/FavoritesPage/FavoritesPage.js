@@ -10,16 +10,23 @@ class FavoritesPage extends Component {
     heading: 'Favorites',
   };
 
+  componentDidMount = () => {
+    this.props.dispatch({
+      type: 'FETCH_FAVORITES',
+      payload: `${this.props.store.user.id}`,
+    });
+  };
+
   render() {
+    console.log('redux state on favorites', this.props.store);
+    
     return (
       <div className="container">
         <h2>{this.state.heading}</h2>
         <ul>
-          <li>favorite plant 1 <button className="favorite"><FavoriteIcon>Heart</FavoriteIcon></button></li>
-          <li>favorite plant 2 <button className="favorite"><FavoriteIcon>Heart</FavoriteIcon></button></li>
-          <li>favorite plant 3 <button className="favorite"><FavoriteBorderIcon>Heart</FavoriteBorderIcon></button></li>
-          <li>favorite plant 4 <button className="favorite"><FavoriteBorderIcon>Heart</FavoriteBorderIcon></button></li>
-        </ul>
+        {this.props.store.favorite.map( item =>
+            <li key={item.id}> <img width="200px" src={item.image}></img> Plant {item.plant}<FavoriteIcon className="favorite"/></li>)}
+            </ul>
       </div>
     );
   }

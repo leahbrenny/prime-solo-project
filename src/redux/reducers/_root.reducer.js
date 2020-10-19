@@ -3,6 +3,7 @@ import errors from './errors.reducer';
 import user from './user.reducer';
 import plant from './plant.reducer';
 import room from './room.reducer';
+import favorite from './favorite.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   plant, //contains user plants
   room, //contains user rooms
+  favorite, //contains user favorites
 });
 
 export default rootReducer;
