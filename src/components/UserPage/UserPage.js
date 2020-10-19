@@ -17,15 +17,8 @@ class UserPage extends Component {
         <h1 id="welcome">Welcome {this.props.store.user.username}, to your Planter!</h1>
         <p>Your ID is: {this.props.store.user.id}</p>
         <h3>Your Plants</h3>
-        {/* <p><img width="200px" src={this.state.randomPlant.image} /> Plant {this.state.randomPlant.plant}</p> */}
         {this.props.store.plant.map( item =>
             <p key={item.id}> <img width="200px" src={item.image}></img> Plant {item.plant}</p>)}
-        {/* <p>{this.props.store.plant.id[1]}</p> */}
-        {/* <p>{this.props.store.plant[Math.floor((Math.random()* (this.props.store.plant.length -1)) + 0)]}</p> */}
-        {/* <ul>
-          {this.props.store.plant.map( item =>
-            <li key={item.id}> <img width="200px" src={item.image}></img> Plant {item.plant}</li>)}
-        </ul> */}
       </div>
     );
   }

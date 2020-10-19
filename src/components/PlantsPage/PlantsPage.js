@@ -17,12 +17,9 @@ class PlantsPage extends Component {
       <div className="container">
         <h2>{this.state.heading}</h2>
         <ul>
-          <li>plant 1 <button>delete</button></li>
-          <li>plant 2 <button>delete</button></li>
-          <li>plant 3 <button>delete</button></li>
-          <li>plant 4 <button>delete</button></li>
-          <li>plant 5 <button>delete</button></li>
-        </ul>
+        {this.props.store.plant.map( item =>
+            <li key={item.id}> <img width="200px" src={item.image}></img> Plant {item.plant}</li>)}
+            </ul>
       </div>
     );
   }
