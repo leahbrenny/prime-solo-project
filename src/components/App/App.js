@@ -22,6 +22,7 @@ import FavoritesPage from '../FavoritesPage/FavoritesPage';
 import './App.css';
 import RoomsPage from '../RoomsPage/RoomsPage';
 import SearchPage from '../SearchPage/SearchPage';
+import NewRoomPage from '../NewRoomPage/NewRoomPage';
 
 class App extends Component {
   componentDidMount() {
@@ -113,6 +114,13 @@ class App extends Component {
               path='/home'
               component={LandingPage}
               authRedirect='/user'
+            />
+
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path='/newroom'
+              component={NewRoomPage}
             />
 
             {/* If none of the other routes matched, we will show a 404. */}

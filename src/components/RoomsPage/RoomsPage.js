@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import './RoomsPage.css';
+import { Link } from 'react-router-dom';
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
@@ -10,12 +11,27 @@ import './RoomsPage.css';
 class RoomsPage extends Component {
   state = {
     heading: 'Rooms Page',
+      roomId: ''
   };
+
   componentDidMount = () => {
     this.props.dispatch({
       type: 'FETCH_ROOMS',
-      payload: `${this.props.store.user.id}`
-    })
+      payload: `${this.props.store.user.id}`,
+    });
+  };
+
+  onRoomChange = (event, property) => {
+    console.log('tried to select a room', property, event.target.value);
+    this.setState({
+      [property]: event.target.value,
+    });
+    setTimeout(this.displayRoom(), 100);
+  };
+
+  displayRoom = () => {
+    console.log('want to display', this.state);
+    
   }
 
   render() {
@@ -25,11 +41,18 @@ class RoomsPage extends Component {
       <div>
         <h2>{this.state.heading}</h2>
         <div className='roomSelect'>
-          <select>
-            {this.props.store.room.map( item =>
-              <option key={item.id}>{item.room}</option>)}
+          <select onChange={(event) => this.onRoomChange(event, 'roomId')}>
+            {this.props.store.room.map((item) => (
+              <option key={item.id} value={item.id}>
+                {item.room}
+              </option>
+            ))}
           </select>
+          <div>
+          <Link to='/newroom'>
           <button>+New Room</button>
+          </Link>
+          </div>
         </div>
         <div className='roomReturn'>
           <p>Room data will go here</p>
