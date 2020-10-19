@@ -23,6 +23,7 @@ import './App.css';
 import RoomsPage from '../RoomsPage/RoomsPage';
 import SearchPage from '../SearchPage/SearchPage';
 import NewRoomPage from '../NewRoomPage/NewRoomPage';
+import EditRoomPage from '../EditRoomPage/EditRoomPage';
 
 class App extends Component {
   componentDidMount() {
@@ -121,6 +122,13 @@ class App extends Component {
               exact
               path='/newroom'
               component={NewRoomPage}
+            />
+
+            <ProtectedRoute
+              // logged in shows InfoPage else shows LoginPage
+              exact
+              path='/editroom'
+              component={EditRoomPage}
             />
 
             {/* If none of the other routes matched, we will show a 404. */}

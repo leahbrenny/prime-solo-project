@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom';
 class RoomsPage extends Component {
   state = {
     heading: 'Rooms Page',
-      roomId: ''
+    roomId: '',
   };
 
   componentDidMount = () => {
@@ -26,13 +26,16 @@ class RoomsPage extends Component {
     this.setState({
       [property]: event.target.value,
     });
-    setTimeout(this.displayRoom(), 100);
+    this.displayRoom();
   };
 
   displayRoom = () => {
     console.log('want to display', this.state);
-    
-  }
+  };
+
+  confirmDeleteRoom = () => {
+    window.confirm('Are you sure you want to delete this room?');
+  };
 
   render() {
     console.log('rooms page store', this.props.store);
@@ -49,17 +52,19 @@ class RoomsPage extends Component {
             ))}
           </select>
           <div>
-          <Link to='/newroom'>
-          <button>+New Room</button>
-          </Link>
+            <Link to='/newroom'>
+              <button>+New Room</button>
+            </Link>
           </div>
         </div>
         <div className='roomReturn'>
           <p>Room data will go here</p>
         </div>
         <div>
-          <button>Edit</button>
-          <button>Delete</button>
+          <Link to='/editroom'>
+            <button>Edit</button>
+          </Link>
+          <button onClick={this.confirmDeleteRoom}>Delete</button>
         </div>
       </div>
     );

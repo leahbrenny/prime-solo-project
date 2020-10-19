@@ -7,9 +7,9 @@ import { Link } from 'react-router-dom';
 // value setup. When making a new component be sure to replace
 // the component name TemplateClass with the name for the new
 // component.
-class NewRoomPage extends Component {
+class EditRoomPage extends Component {
   state = {
-    heading: 'Add A New Room',
+    heading: 'Edit Room',
     newRoom: {
       roomName: null,
       sunlight: null,
@@ -18,7 +18,7 @@ class NewRoomPage extends Component {
   };
 
   handleSubmit = () => {
-    console.log('tried to make a new room');
+    console.log('tried to edit a room');
   };
 
   handleHumidityChange = (event) => {
@@ -57,7 +57,7 @@ class NewRoomPage extends Component {
             placeholder='Humidity'
             onChange={this.handleHumidityChange}
           />
-          <button type='submit'>Create Room</button>
+          <button type='submit'>Update Room</button>
         </form>
         <Link to='/rooms'>
           <button>Cancel</button>
@@ -67,4 +67,4 @@ class NewRoomPage extends Component {
   }
 }
 
-export default connect(mapStoreToProps)(NewRoomPage);
+export default connect(mapStoreToProps)(EditRoomPage);
