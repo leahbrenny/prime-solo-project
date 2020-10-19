@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 // component.
 class RoomsPage extends Component {
   state = {
-    heading: 'Rooms Page'
+    heading: 'Rooms Page',
   };
 
   componentDidMount = () => {
@@ -53,10 +53,15 @@ class RoomsPage extends Component {
           </div>
         </div>
         <div className='roomReturn'>
-        <ul>
-        {this.props.store.roomplant.map( item =>
-            <li key={item.id}> <img width="200px" src={item.image}></img>{item.plant}</li>)}
-            </ul>
+          <ul>
+            {this.props.store.roomplant.map((item) => (
+              <li key={item.id}>
+                {' '}
+                <img width='200px' src={item.image}></img>
+                {item.plant}
+              </li>
+            ))}
+          </ul>
         </div>
         <div>
           <Link to='/editroom'>
