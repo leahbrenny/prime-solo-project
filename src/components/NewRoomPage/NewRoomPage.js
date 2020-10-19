@@ -11,26 +11,26 @@ class NewRoomPage extends Component {
   state = {
     heading: 'Add A New Room',
     newRoom: {
-      roomName: null,
-      sunlight: null,
-      humidity: null,
+      user_id: this.props.store.user.id,
+      roomName: '',
+      sunlight: '',
+      humidity: '',
     },
   };
 
   handleSubmit = () => {
-    console.log('tried to make a new room');
+    console.log('tried to make a new room', this.state.newRoom);
+    this.props.dispatch({type: 'ADD_ROOM', payload: this.state.newRoom});
   };
 
-  handleHumidityChange = (event) => {
-    console.log('tried to change humidity to', event.target.value);
-  };
-
-  handleSunlightChange = (event) => {
-    console.log('tried to change sunlight to', event.target.value);
-  };
-
-  handleRoomNameChange = (event) => {
-    console.log('tried to change room name to', event.target.value);
+  handleChangeFor = (propertyName, event) => {
+    this.setState({
+      newRoom: {
+        ...this.state.newRoom,
+        // computed property
+        [propertyName]: event.target.value,
+      },
+    });
   };
 
   render() {
@@ -41,21 +41,21 @@ class NewRoomPage extends Component {
           <input
             type='text'
             placeholder='Room Name'
-            onChange={this.handleRoomNameChange}
+            onChange={(event) => this.handleChangeFor('roomName', event)}
           />
           <input
             min='0'
             max='10'
             type='number'
             placeholder='Sunlight'
-            onChange={this.handleSunlightChange}
+            onChange={(event) => this.handleChangeFor('sunlight', event)}
           />
           <input
             min='0'
             max='100'
             type='number'
             placeholder='Humidity'
-            onChange={this.handleHumidityChange}
+            onChange={(event) => this.handleChangeFor('humidity', event)}
           />
           <button type='submit'>Create Room</button>
         </form>
