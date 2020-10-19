@@ -56,8 +56,8 @@ VALUES
 INSERT INTO "plant" ("plant_name", "plant_img", "ph_min" , "ph_max" , "light" , "toxicity" , "temp_min" , "temp_max" , "soil_humidity" , "favorite" )
 VALUES
 ('test plant', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/daisy-flower-1532449822.jpg?crop=1.00xw:0.892xh;0,0&resize=1200:*', 4.5, 8, 4, 'medium', 52, 112, 3, false),
-('second test plant', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/daisy-flower-1532449822.jpg?crop=1.00xw:0.892xh;0,0&resize=1200:*', 4.5, 8, 4, 'medium', 52, 112, 3, false),
-('third test plant', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/daisy-flower-1532449822.jpg?crop=1.00xw:0.892xh;0,0&resize=1200:*', 4.5, 8, 4, 'medium', 52, 112, 3, false),
+('second test plant', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/daisy-flower-1532449822.jpg?crop=1.00xw:0.892xh;0,0&resize=1200:*', 4.5, 8, 4, 'medium', 52, 112, 3, true),
+('third test plant', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/daisy-flower-1532449822.jpg?crop=1.00xw:0.892xh;0,0&resize=1200:*', 4.5, 8, 4, 'medium', 52, 112, 3, true),
 ('fourth test plant', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/daisy-flower-1532449822.jpg?crop=1.00xw:0.892xh;0,0&resize=1200:*', 4.5, 8, 4, 'medium', 52, 112, 3, false),
 ('fifth test plant', 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/daisy-flower-1532449822.jpg?crop=1.00xw:0.892xh;0,0&resize=1200:*', 4.5, 8, 4, 'medium', 52, 112, 3, false);
 
@@ -111,3 +111,13 @@ SELECT  "plant"."plant_img" as "image",
   FROM "user"
   JOIN "room" ON "user"."id" = "room"."user_id"
   WHERE "user"."id" = $1;
+
+--gets user's favorite plants
+  SELECT  "plant"."plant_img" as "image",
+  "plant"."plant_name" as "plant"
+  FROM "user"
+  JOIN "room" ON "user"."id" = "room"."user_id"
+  JOIN "room_plant" ON "room"."id" = "room_plant"."room_id"
+  JOIN "plant" ON "plant"."id" = "room_plant"."plant_id"
+  WHERE "user"."id" = $1
+  AND "plant"."favorite" = true;
