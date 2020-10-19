@@ -15,7 +15,6 @@ class UserPage extends Component {
     return (
       <div>
         <h1 id="welcome">Welcome {this.props.store.user.username}, to your Planter!</h1>
-        <p>Your ID is: {this.props.store.user.id}</p>
         <h3>Your Plants</h3>
         {this.props.store.plant.map( item =>
             <p key={item.id}> <img width="200px" src={item.image}></img> Plant {item.plant}</p>)}
