@@ -11,9 +11,9 @@ class UserPage extends Component {
   // }
   render() {
     console.log('trying to find plant', this.props);
-    const randomPlant = this.props.store.plant[
-      Math.floor(Math.random() * this.props.store.plant.length)
-    ];
+    // const randomPlant = this.props.store.plant[
+    //   Math.floor(Math.random() * this.props.store.plant.length)
+    // ];
     return (
       <div>
         <h1 id='welcome'>

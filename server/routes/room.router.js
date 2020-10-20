@@ -44,4 +44,24 @@ router.post('/:id', (req, res) => {
     });
 });
 
+router.delete('/:id', (req, res) => {
+  console.log('in room delete', req.body);
+  let query = `DELETE FROM "room"
+  WHERE "room"."id" = $1;`;
+  pool
+    .query(query, [
+      req.body.displayedRoomId
+    ])
+    .then((result) => {
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(500);
+    });
+});
+
+// router.put
+
+
 module.exports = router;

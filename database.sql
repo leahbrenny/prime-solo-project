@@ -36,8 +36,13 @@ CREATE TABLE "plant" (
 );
 
 CREATE TABLE "room_plant" (
-    "room_id" INT,
-    "plant_id" INT
+  "plant_id" INT NOT NULL,
+  "room_id" INT NOT NULL
+    FOREIGN KEY (plant_id)
+    REFERENCES "plant" (id)
+    FOREIGN KEY (room_id)
+    REFERENCES "room" (id)
+    ON DELETE CASCADE
 );
 
 --test values

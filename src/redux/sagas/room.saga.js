@@ -25,9 +25,20 @@ function* addRoom(action){
   console.log('response', response.data);
 }
 
+function* deleteRoom(action){
+  console.log('payload', action.payload);
+  let response = yield axios({
+    method: 'DELETE',
+    url: `/api/room/${action.payload}`,
+    payload: action.payload
+  })
+  console.log('response in delete room', response.data);
+}
+
 function* roomSaga() {
   yield takeLatest('FETCH_ROOMS', fetchRooms);
   yield takeLatest('ADD_ROOM', addRoom);
+  yield takeLatest('DELETE_ROOM', deleteRoom);
 }
 
 export default roomSaga;

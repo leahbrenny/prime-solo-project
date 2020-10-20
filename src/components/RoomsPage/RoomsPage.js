@@ -35,13 +35,15 @@ class RoomsPage extends Component {
 
   confirmDeleteRoom = () => {
     // window.confirm('Are you sure you want to delete this room?');
-    if (window.confirm("Press a button!")) {
+    if (window.confirm("are you sure you want to delete")) {
       console.log('pressed ok');
       this.props.dispatch({
         type: 'DELETE_ROOM',
         payload: this.state.displayedRoomId,
       })
     } else {
+      console.log('payload', this.state.displayedRoomId);
+      
       console.log('pressed cancel');
     }
   };
