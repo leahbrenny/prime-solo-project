@@ -19,13 +19,13 @@ class UserPage extends Component {
         <h1 id='welcome'>
           Welcome {this.props.store.user.username}, to your Planter!
         </h1>
-        <h3>Your Plants</h3>
+        {/* <h3>Your Plants</h3>
         {this.props.store.plant.map((item) => (
           <p key={item.id}>
             {' '}
             <img width='200px' src={item.image}></img> Plant {item.plant}
           </p>
-        ))}
+        ))} */}
       </div>
     );
   }

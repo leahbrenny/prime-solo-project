@@ -10,10 +10,10 @@ import { Link } from 'react-router-dom';
 class EditRoomPage extends Component {
   state = {
     heading: 'Edit Room',
-    newRoom: {
-      roomName: null,
-      sunlight: null,
-      humidity: null,
+    editRoom: {
+      roomName: '',
+      sunlight: '',
+      humidity: '',
     },
   };
 
@@ -21,16 +21,14 @@ class EditRoomPage extends Component {
     console.log('tried to edit a room');
   };
 
-  handleHumidityChange = (event) => {
-    console.log('tried to change humidity to', event.target.value);
-  };
-
-  handleSunlightChange = (event) => {
-    console.log('tried to change sunlight to', event.target.value);
-  };
-
-  handleRoomNameChange = (event) => {
-    console.log('tried to change room name to', event.target.value);
+  handleChangeFor = (propertyName, event) => {
+    this.setState({
+      newRoom: {
+        ...this.state.editRoom,
+        // computed property
+        [propertyName]: event.target.value,
+      },
+    });
   };
 
   render() {

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import './RoomsPage.css';
 import { Link } from 'react-router-dom';
+import { FavoriteRounded } from '@material-ui/icons';
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
@@ -11,6 +12,7 @@ import { Link } from 'react-router-dom';
 class RoomsPage extends Component {
   state = {
     heading: 'Rooms Page',
+    displayedRoomId: '',
   };
 
   componentDidMount = () => {
@@ -26,10 +28,22 @@ class RoomsPage extends Component {
       type: 'FETCH_ROOMPLANTS',
       payload: event.target.value,
     });
+    this.setState({
+      displayedRoomId: event.target.value,
+    })
   };
 
   confirmDeleteRoom = () => {
-    window.confirm('Are you sure you want to delete this room?');
+    // window.confirm('Are you sure you want to delete this room?');
+    if (window.confirm("Press a button!")) {
+      console.log('pressed ok');
+      this.props.dispatch({
+        type: 'DELETE_ROOM',
+        payload: this.state.displayedRoomId,
+      })
+    } else {
+      console.log('pressed cancel');
+    }
   };
 
   render() {

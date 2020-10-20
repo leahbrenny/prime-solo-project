@@ -124,3 +124,9 @@ SELECT  "plant"."plant_img" as "image",
   JOIN "plant" ON "plant"."id" = "room_plant"."plant_id"
   WHERE "user"."id" = $1
   AND "plant"."favorite" = true;
+
+--deletes selected room from db
+DELETE FROM "room"
+WHERE "room"."id" = $1;
+DELETE FROM "room_plant"
+WHERE "room_plant"."room_id" = $1;
