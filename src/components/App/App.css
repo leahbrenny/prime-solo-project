@@ -27,16 +27,20 @@ Button
 -------------------------------------------------------------------------------- */
 
 .btn {
-  display: inline-block;
   padding: 10px 20px;
   border-color: #014116;
   border-width: 1px 1px 3px;
   border-radius: 4px;
-  background-color: #0c682a;
+  background-color: rgb(69, 109, 69);
   color: #f8f8f8;
   font-size: 1.1rem;
   outline: 0;
   cursor: pointer;
+  margin-top: 10px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .btn_sizeMin {
@@ -104,6 +108,7 @@ Form Treatment
   background-color: #efefef;
   border-radius: 3px;
   box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
+  text-align: center;
 }
 
 input {

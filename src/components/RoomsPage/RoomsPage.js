@@ -5,10 +5,6 @@ import './RoomsPage.css';
 import { Link } from 'react-router-dom';
 import { FavoriteRounded } from '@material-ui/icons';
 
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace
-// the component name TemplateClass with the name for the new
-// component.
 class RoomsPage extends Component {
   state = {
     heading: 'Rooms Page',
@@ -18,7 +14,6 @@ class RoomsPage extends Component {
   componentDidMount = () => {
     this.props.dispatch({
       type: 'FETCH_ROOMS',
-      // payload: `${this.props.store.user.id}`,
     });
   };
 
@@ -34,7 +29,6 @@ class RoomsPage extends Component {
   };
 
   confirmDeleteRoom = () => {
-    // window.confirm('Are you sure you want to delete this room?');
     if (window.confirm('are you sure you want to delete')) {
       console.log('pressed ok');
       this.props.dispatch({
