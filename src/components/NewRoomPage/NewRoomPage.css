@@ -1,0 +1,59 @@
+.tooltip {
+    position: relative;
+    display: block;
+    width: 400px;
+    margin-bottom: 20px;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 300px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -150px;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .newRoomForm{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border: 8px solid rgb(64, 100, 64);
+      padding: 40px;
+      margin-left: 100px;
+      margin-right: 100px;
+      background: rgb(69, 109, 69);
+      border-radius: 20px;
+  }
+
+  .cancelBtn{
+      margin-top: 10px;
+    display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  }
