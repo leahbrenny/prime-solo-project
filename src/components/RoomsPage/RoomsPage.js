@@ -18,7 +18,7 @@ class RoomsPage extends Component {
   componentDidMount = () => {
     this.props.dispatch({
       type: 'FETCH_ROOMS',
-      payload: `${this.props.store.user.id}`,
+      // payload: `${this.props.store.user.id}`,
     });
   };
 
@@ -30,20 +30,23 @@ class RoomsPage extends Component {
     });
     this.setState({
       displayedRoomId: event.target.value,
-    })
+    });
   };
 
   confirmDeleteRoom = () => {
     // window.confirm('Are you sure you want to delete this room?');
-    if (window.confirm("are you sure you want to delete")) {
+    if (window.confirm('are you sure you want to delete')) {
       console.log('pressed ok');
       this.props.dispatch({
         type: 'DELETE_ROOM',
         payload: this.state.displayedRoomId,
-      })
+      });
+      this.props.dispatch({
+        type: 'FETCH_ROOMS',
+      });
     } else {
       console.log('payload', this.state.displayedRoomId);
-      
+
       console.log('pressed cancel');
     }
   };
@@ -55,13 +58,17 @@ class RoomsPage extends Component {
       <div>
         <h2>{this.state.heading}</h2>
         <div className='roomSelect'>
-          <select onChange={(event) => this.onRoomChange(event, 'roomId')}>
-            {this.props.store.room.map((item) => (
-              <option key={item.id} value={item.id}>
-                {item.room}
-              </option>
-            ))}
-          </select>
+          {this.props.store.room === undefined ? (
+            <div>you didn't see anything</div>
+          ) : (
+            <select onChange={(event) => this.onRoomChange(event, 'roomId')}>
+              {this.props.store.room.map((item) => (
+                <option key={item.id} value={item.id}>
+                  {item.room}
+                </option>
+              ))}
+            </select>
+          )}
           <div>
             <Link to='/newroom'>
               <button>+New Room</button>

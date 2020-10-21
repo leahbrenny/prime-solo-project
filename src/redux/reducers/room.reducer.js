@@ -3,9 +3,9 @@ const room = (state = [], action) => {
         case "SET_ROOMS":
           return action.payload;
         case "ADD_ROOM":
-          return action.payload;
+          return state;
           case "DELETE_ROOM":
-          return action.payload;
+          return state;
         default:
           return state;
       }

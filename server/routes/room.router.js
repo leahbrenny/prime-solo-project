@@ -5,8 +5,8 @@ const {
 const pool = require('../modules/pool');
 const router = express.Router();
 
-router.get('/:id', (req, res) => {
-  console.log('body in room GET', req.body, req.params.id);
+router.get('/', (req, res) => {
+  console.log('body in room GET', req.user.id);
   //query selects plant img html and plant name for user
   let query = `SELECT  "room"."room_name" as "room",
   "room"."id" as "id"
@@ -14,7 +14,7 @@ router.get('/:id', (req, res) => {
   JOIN "room" ON "user"."id" = "room"."user_id"
   WHERE "user"."id" = $1;`;
   pool
-    .query(query, [req.params.id])
+    .query(query, [req.user.id])
     .then((result) => {
       res.send(result.rows);
     })
@@ -24,7 +24,7 @@ router.get('/:id', (req, res) => {
     });
 });
 
-router.post('/:id', (req, res) => {
+router.post('/', (req, res) => {
   console.log('in room post', req.body);
   let query = `INSERT INTO "room" ("user_id", "room_name", "light", "humidity")
   VALUES ($1, $2, $3, $4);`;
@@ -45,13 +45,11 @@ router.post('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  console.log('in room delete', req.body);
+  console.log('in room delete', req.params);
   let query = `DELETE FROM "room"
   WHERE "room"."id" = $1;`;
   pool
-    .query(query, [
-      req.body.displayedRoomId
-    ])
+    .query(query, [Number(req.params.id)])
     .then((result) => {
       res.sendStatus(200);
     })

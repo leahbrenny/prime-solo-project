@@ -6,7 +6,7 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 router.get('/:id', (req, res) => {
-  console.log('body in GET', req.body, req.params.id);
+  console.log('body in plant GET', req.params.id);
   //query selects plant img, plant name, and id for user
   let query = `SELECT  "plant"."plant_img" as "image",
   "plant"."plant_name" as "plant",
