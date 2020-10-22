@@ -2,21 +2,21 @@
     font-size: 24px;
     font-weight: 700;
     display: inline-block;
-    color: #fafafa;
+    color: #E6D5AA;
     padding-left: 10px;
 }
 
 .nav {
   margin: 0 0 30px;
-  background-color: rgb(69, 109, 69);
+  background-color: #51624F;
   overflow: hidden;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .nav-link {
   float: left;
-  color: #f2f2f2;
-  background-color: rgb(69, 109, 69);
+  color: #E6D5AA;
+  background-color: #51624F;
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;
@@ -30,7 +30,7 @@
 }
 
 .nav-link:hover {
-  background-color: #a6a8a6;
+  background-color: #A4B4AC;
 }
 
 .nav-right {

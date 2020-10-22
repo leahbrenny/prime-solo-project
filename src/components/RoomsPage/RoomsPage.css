@@ -1,9 +1,41 @@
 .roomSelect{
     margin-left: 10%;
-    display: inline;
+    display: flex;
+    border: 2px solid purple;
+    margin-right: 10%;
 }
 
 .roomReturn{
-    margin-left: 20%;
-    display: inline-block;
+    width: 60%;
+    margin: auto;
+    background: ;
+    border: 2px solid blue;
+    padding-left: 0px;
+    align-content: center;
+}
+
+.editDeleteContainer{
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 10px;
+}
+
+.editBtn{
+float: left;
+}
+
+.deleteBtn{
+float: right;
+}
+
+img{
+    border: 2px solid gray;
+    border-radius: 15px;
+    margin-right: 30px;
+}
+
+li{
+
 }

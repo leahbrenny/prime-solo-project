@@ -14,6 +14,7 @@ const plantRouter = require('./routes/plant.router');
 const roomRouter = require('./routes/room.router');
 const favoriteRouter = require('./routes/favorite.router');
 const roomPlantRouter =  require('./routes/roomplant.router');
+const editRoomRouter = require('./routes/editRoom.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -32,6 +33,7 @@ app.use('/api/plant', plantRouter);
 app.use('/api/room', roomRouter);
 app.use('/api/favorite', favoriteRouter);
 app.use('/api/roomplant', roomPlantRouter);
+app.use('/api/editroom', editRoomRouter)
 // Serve static files
 app.use(express.static('build'));
 

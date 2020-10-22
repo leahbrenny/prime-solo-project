@@ -28,11 +28,11 @@ Button
 
 .btn {
   padding: 10px 20px;
-  border-color: #014116;
+  border-color: #51624F;
   border-width: 1px 1px 3px;
   border-radius: 4px;
-  background-color: rgb(69, 109, 69);
-  color: #f8f8f8;
+  background-color: #AEBEA2;
+  color: #51624F;
   font-size: 1.1rem;
   outline: 0;
   cursor: pointer;
@@ -105,7 +105,7 @@ Form Treatment
   max-width: 100%;
   padding: 25px;
   margin: 0 auto 20px;
-  background-color: #efefef;
+  background-color: #A4B4AC;
   border-radius: 3px;
   box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
   text-align: center;

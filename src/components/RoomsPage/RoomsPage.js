@@ -26,6 +26,7 @@ class RoomsPage extends Component {
     this.setState({
       displayedRoomId: event.target.value,
     });
+    this.editRoomValues(event.target.value)
   };
 
   confirmDeleteRoom = () => {
@@ -44,6 +45,13 @@ class RoomsPage extends Component {
       console.log('pressed cancel');
     }
   };
+
+  editRoomValues = (roomId) => {
+    this.props.dispatch({
+      type: 'FETCH_EDIT_ROOM',
+      payload: Number(roomId)
+    })
+  }
 
   render() {
     console.log('rooms page store', this.props.store);
@@ -76,15 +84,16 @@ class RoomsPage extends Component {
                 {' '}
                 <img width='200px' src={item.image}></img>
                 {item.plant}
+                <button value={item.id}>Remove</button>
               </li>
             ))}
           </ul>
         </div>
-        <div>
+        <div className="editDeleteContainer">
           <Link to='/editroom'>
-            <button>Edit</button>
+            <button className="editBtn">Edit Room</button>
           </Link>
-          <button onClick={this.confirmDeleteRoom}>Delete</button>
+          <button className="deleteBtn" onClick={this.confirmDeleteRoom}>Delete Room</button>
         </div>
       </div>
     );
