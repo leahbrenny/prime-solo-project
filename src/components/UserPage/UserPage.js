@@ -9,9 +9,9 @@ class UserPage extends Component {
     console.log('trying to find plant', this.props);
     
     return (
-      <div>
+      <div className='userContainer'>
         <h1 className='welcome'>
-          Welcome {this.props.store.user.username}, to your Planter!
+          Welcome to your Planter {this.props.store.user.username}!
         </h1>
         
       </div>

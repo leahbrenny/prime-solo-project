@@ -65,12 +65,12 @@ class App extends Component {
               component={RoomsPage}
             />
 
-            <ProtectedRoute
+            {/* <ProtectedRoute
               // logged in shows InfoPage else shows LoginPage
               exact
               path='/favorites'
               component={FavoritesPage}
-            />
+            /> */}
 
             <ProtectedRoute
               // logged in shows InfoPage else shows LoginPage

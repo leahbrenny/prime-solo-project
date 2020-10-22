@@ -1,4 +1,13 @@
 .welcome{
     text-align: center;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    color: rgba(255, 255, 255, 0.993);
+}
+
+.userContainer{
+    background-color: #51624fc2;
+    margin-left: 20%;
+    margin-right: 20%;
+    border-radius: 15px;
+    padding: 1px;
 }

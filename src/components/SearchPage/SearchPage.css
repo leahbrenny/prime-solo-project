@@ -3,8 +3,8 @@
     width: 80%;
     padding: 10px;
     text-align: center;
-    background-color: #A4B4AC;
-    border: 2px solid #A4B4AC;
+    background-color: #a4b4acb9;
+    border: 2px solid #a4b4ac69;
     border-radius: 5px;
 }
 
@@ -23,7 +23,7 @@ input{
     padding: 5px;
 }
 img{
-    border: 1px solid #51624F;
+    border: 1px solid #51624f;
    border-radius: 5px;
    height: auto;
    height: 200px;
@@ -32,7 +32,7 @@ img{
 }
 
 .searchItem{
-    background-color: #AEBEA2;
+    background-color: #aebea2;
     margin: 30px;
     border-radius: 10px;
     width: 30%;
@@ -46,4 +46,8 @@ img{
     background: #51624F;
     color: #E6D5AA;
     width: 10%;
+}
+
+.searchField{
+    background-color: #e6d5aa77;
 }

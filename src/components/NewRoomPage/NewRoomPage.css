@@ -47,8 +47,9 @@
       padding: 40px;
       margin-left: 100px;
       margin-right: 100px;
-      background: rgb(69, 109, 69);
+      background: #51624fd7;
       border-radius: 20px;
+      color: #E6D5AA;
   }
 
   .cancelBtn{

@@ -1,11 +1,20 @@
-.container{
+.plantContainer{
         margin: auto;
-        width: 80%;
+        width: 60%;
         padding: 10px;
         text-align: center;
-        border-radius: 5px;
+        border-radius: 10px;
+        background-color: #aebea2d3;
     }
 
-li{
+.plantList{
         list-style: none;
+        
+}
+
+.plantName{
+        float: right;
+        display: inline;
+        margin-right: 20%;
+        margin-top: 10%;
 }

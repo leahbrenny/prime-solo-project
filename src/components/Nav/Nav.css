@@ -8,7 +8,7 @@
 
 .nav {
   margin: 0 0 30px;
-  background-color: #51624F;
+  background-color: #51624fda;
   overflow: hidden;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
@@ -16,7 +16,7 @@
 .nav-link {
   float: left;
   color: #E6D5AA;
-  background-color: #51624F;
+  background-color: #51624f00;
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;

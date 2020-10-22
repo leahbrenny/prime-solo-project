@@ -9,16 +9,16 @@ import './PlantsPage.css'
 // component.
 class PlantsPage extends Component {
   state = {
-    heading: 'Plants',
+    heading: 'All of Your Plants',
   };
 
   render() {
     return (
-      <div className="container">
+      <div className="plantContainer">
         <h2>{this.state.heading}</h2>
         <ul>
         {this.props.store.plant.map( item =>
-            <li key={item.id}> <img width="200px" src={item.image}></img> Plant {item.plant}</li>)}
+            <li className="plantList" key={item.id}> <img width="200px" src={item.image}></img> <div className='plantName'>{item.plant}</div></li>)}
             </ul>
       </div>
     );

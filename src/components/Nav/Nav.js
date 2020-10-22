@@ -34,9 +34,9 @@ const Nav = (props) => {
             <Link className="nav-link" to="/rooms">
               Your Rooms
             </Link>
-            <Link className="nav-link" to="/favorites">
+            {/* <Link className="nav-link" to="/favorites">
               Favorites
-            </Link>
+            </Link> */}
             <Link className="nav-link" to="/plants">
               Your Plants
             </Link>

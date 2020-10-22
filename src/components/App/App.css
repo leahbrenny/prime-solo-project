@@ -2,11 +2,15 @@ html,
 body,
 #react-root {
   height: 100%;
+  background-image: url('https://cdn.pixabay.com/photo/2015/09/09/16/05/forest-931706_960_720.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0px;
+  
 }
 
 img {
@@ -59,7 +63,7 @@ Button
 }
 
 .btn:hover {
-  background-color: #a6a8a6;
+  background-color: #A4B4AC;
   text-decoration: none;
 }
 
@@ -67,17 +71,17 @@ Button
 .btn_asLink {
   padding: 0;
   border-width: 0;
-  border-bottom: 1px solid #444;
+  border-bottom: 1px solid #E6D5AA;
   border-radius: 0;
   background: none;
   font: inherit;
-  color: #444;
+  color: #E6D5AA;
 }
 
 .btn_asLink:hover {
   background-color: transparent;
-  border-color: #008183;
-  color: #008183;
+  border-color: #A4B4AC;
+  color: #A4B4AC;
 }
 
 /* --------------------------------------------------------------------------------
@@ -105,13 +109,29 @@ Form Treatment
   max-width: 100%;
   padding: 25px;
   margin: 0 auto 20px;
-  background-color: #A4B4AC;
+  background-color: #a4b4acd5;
   border-radius: 3px;
-  box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
+  box-shadow: 0 1px 2px #51624F;
   text-align: center;
 }
 
 input {
   margin: 5px;
   margin-bottom: 10px;
+}
+
+.registerInputs{
+  display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding-left: 20%;
+      padding-right: 20%;
+      margin-left: 10px;
+      margin-right: 10px;
+}
+
+
+.loginHeading{
+  color: #51624F;
 }
