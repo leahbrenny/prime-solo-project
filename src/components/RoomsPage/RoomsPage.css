@@ -1,15 +1,14 @@
 .roomSelect{
     margin-left: 10%;
-    display: flex;
-    border: 2px solid purple;
+    border: 2px solid #51624F;
     margin-right: 10%;
 }
 
 .roomReturn{
     width: 60%;
     margin: auto;
-    background: ;
-    border: 2px solid blue;
+    background: #A4B4AC;
+    border: 2px solid #AEBEA2;
     padding-left: 0px;
     align-content: center;
 }
@@ -24,10 +23,38 @@
 
 .editBtn{
 float: left;
+background-color: #AEBEA2;
+border-radius: 5px;
+}
+
+.newRoomBtn{
+float: right;
+background-color: #AEBEA2;
+border-radius: 5px;
+}
+
+.roomSelectInput{
+float: left;
+background-color: #AEBEA2;
+border-radius: 5px;
 }
 
 .deleteBtn{
 float: right;
+background-color: #AEBEA2;
+border-radius: 5px;
+}
+
+.pageHeading{
+    color: #E6D5AA;
+}
+
+.roomPageContainer{
+    background: #51624F;
+    padding-bottom: 50px;
+    margin-left: 10%;
+    margin-right: 10%;
+    border-radius: 8px;
 }
 
 img{

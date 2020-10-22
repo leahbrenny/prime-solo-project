@@ -3,7 +3,8 @@
     width: 80%;
     padding: 10px;
     text-align: center;
-    border: 2px solid forestgreen;
+    background-color: #A4B4AC;
+    border: 2px solid #A4B4AC;
     border-radius: 5px;
 }
 
@@ -21,8 +22,28 @@ input{
     border-radius: 1;
     padding: 5px;
 }
+img{
+    border: 1px solid #51624F;
+   border-radius: 5px;
+   height: auto;
+   height: 200px;
+   width: 200px;
+    margin-bottom: 10px;
+}
 
-button{
-    border-radius: 1;
+.searchItem{
+    background-color: #AEBEA2;
+    margin: 30px;
+    border-radius: 10px;
+    width: 30%;
+    display: inline-block;
+    padding: 10px;
+}
+
+.searchButton{
+    border-radius: 1px;
     padding: 5px;
+    background: #51624F;
+    color: #E6D5AA;
+    width: 10%;
 }

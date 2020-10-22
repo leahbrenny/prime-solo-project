@@ -57,13 +57,13 @@ class RoomsPage extends Component {
     console.log('rooms page store', this.props.store);
 
     return (
-      <div>
-        <h2>{this.state.heading}</h2>
+      <div className="roomPageContainer">
+        <h2 className="pageHeading">{this.state.heading}</h2>
         <div className='roomSelect'>
           {this.props.store.room === undefined ? (
             <div>you didn't see anything</div>
           ) : (
-            <select onChange={(event) => this.onRoomChange(event, 'roomId')}>
+            <select className="roomSelectInput" onChange={(event) => this.onRoomChange(event, 'roomId')}>
               {this.props.store.room.map((item) => (
                 <option key={item.id} value={item.id}>
                   {item.room}
@@ -73,7 +73,7 @@ class RoomsPage extends Component {
           )}
           <div>
             <Link to='/newroom'>
-              <button>+New Room</button>
+              <button className="newRoomBtn">+New Room</button>
             </Link>
           </div>
         </div>
