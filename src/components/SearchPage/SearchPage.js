@@ -3,22 +3,27 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import './SearchPage.css';
 
-// const fetch = require('node-fetch');
-// const apiUrl = `https://trefle.io/api/v1/plants?token=${token}`
-// const token = process.env.YOUR_TREFLE_TOKEN
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace
-// the component name SearchPage with the name for the new
-// component.
-
 class SearchPage extends Component {
-  // componentDidMount() {
-  //   (async () => {
-  //     const response = await fetch(apiUrl);
-  //     const json = await response.json();
-  //     console.log(json);
-  //   })();
-  // }
+  
+  onRoomChange = (event, property) => {
+    console.log('tried to select a room', event.target.value);
+    this.setState({
+      newPlant:{
+        ...this.state.newPlant,
+      roomId: event.target.value,
+      }
+    });
+  };
+
+  pullNewPlant = (event) => {
+    console.log('plant and room', event.target.value, this.state.newPlant.roomId );
+    this.setState({
+      newPlant:{
+        ...this.state.newPlant,
+        plantId: event.target.value
+      }
+    })
+  }
 
   onSearchChange = (event, property) => {
     this.setState({
@@ -38,6 +43,12 @@ class SearchPage extends Component {
   state = {
     heading: 'Plant Search',
     search: '',
+    newPlant:{
+    roomId: '',
+    plantId: '',
+    common_name: '',
+    plant_image_url: '',
+    }
   };
 
   render() {
@@ -75,7 +86,7 @@ class SearchPage extends Component {
                       </option>
                     ))}
                   </select>
-                  <button value={item.id}>Add to room</button>
+                  <button value={item.id} onClick={this.pullNewPlant}>Add to room</button>
                 </li>
               ))}
             </ul>
