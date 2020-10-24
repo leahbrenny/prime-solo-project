@@ -11,7 +11,7 @@ class UserPage extends Component {
     return (
       <div className='userContainer'>
         <h1 className='welcome'>
-          Welcome to your Planter {this.props.store.user.username}!
+        {this.props.store.user.username} Welcome to your Planter!
         </h1>
         
       </div>

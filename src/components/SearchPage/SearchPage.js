@@ -4,25 +4,42 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import './SearchPage.css';
 
 class SearchPage extends Component {
-  
   onRoomChange = (event, property) => {
     console.log('tried to select a room', event.target.value);
     this.setState({
-      newPlant:{
+      newPlant: {
         ...this.state.newPlant,
-      roomId: event.target.value,
-      }
+        roomId: event.target.value,
+      },
     });
   };
 
   pullNewPlant = (event) => {
-    console.log('plant and room', event.target.value, this.state.newPlant.roomId );
+    console.log(
+      'plantId and room',
+      event.target.value,
+      this.state.newPlant.roomId
+    );
     this.setState({
       newPlant:{
         ...this.state.newPlant,
         plantId: event.target.value
       }
     })
+    this.props.dispatch({
+      type: 'FETCH_NEW_PLANT',
+      payload: event.target.value
+    })
+    if (window.confirm('added plant to room')) {
+      console.log('pressed ok', this.props.store.newplant, this.state.newPlant.roomId);
+    } else {
+      console.log('pressed cancel');
+    }
+  };
+
+  postNewPlant() {
+    console.log('it has been a second');
+    
   }
 
   onSearchChange = (event, property) => {
@@ -43,12 +60,10 @@ class SearchPage extends Component {
   state = {
     heading: 'Plant Search',
     search: '',
-    newPlant:{
-    roomId: '',
-    plantId: '',
-    common_name: '',
-    plant_image_url: '',
-    }
+    newPlant: {
+      roomId: '',
+      plantId: '',
+    },
   };
 
   render() {
@@ -74,7 +89,7 @@ class SearchPage extends Component {
           ) : (
             <ul className='searchList'>
               {this.props.store.search.data.map((item) => (
-                <li className="searchItem" key={item.id} value={item.id}>
+                <li className='searchItem' key={item.id} value={item.id}>
                   <img src={item.image_url} />
                   {item.common_name}
                   <select
@@ -86,7 +101,9 @@ class SearchPage extends Component {
                       </option>
                     ))}
                   </select>
-                  <button value={item.id} onClick={this.pullNewPlant}>Add to room</button>
+                  <button value={item.id} onClick={this.pullNewPlant}>
+                    Add to room
+                  </button>
                 </li>
               ))}
             </ul>

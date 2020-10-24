@@ -40,9 +40,9 @@ const Nav = (props) => {
             <Link className="nav-link" to="/plants">
               Your Plants
             </Link>
-            <Link className="nav-link" to="/search">
+            {/* <Link className="nav-link" to="/search">
               Search
-            </Link>
+            </Link> */}
             <LogOutButton className="nav-link" />
           </>
         )}

@@ -7,7 +7,7 @@ import favorite from './favorite.reducer';
 import roomplant from './roomplant.reducer';
 import editRoom from './editRoom.reducer';
 import search from './search.reducer';
-
+import newplant from './newplant.reducer';
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -23,6 +23,7 @@ const rootReducer = combineReducers({
   roomplant, //contains plants in selected room
   editRoom,
   search,
+  newplant,
 });
 
 export default rootReducer;
