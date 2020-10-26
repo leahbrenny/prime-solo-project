@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import './PlantsPage.css'
+import './PlantsPage.css';
+import { Link } from 'react-router-dom';
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
@@ -9,17 +10,33 @@ import './PlantsPage.css'
 // component.
 class PlantsPage extends Component {
   state = {
-    heading: 'All of Your Plants',
+    heading: 'Your Plants',
   };
 
   render() {
     return (
-      <div className="plantContainer">
+      <div >
         <h2>{this.state.heading}</h2>
+        <div className='plantContainer'>
+        <div className='plantHeader'>
+        <h3>You have {this.props.store.plant.length} plants!</h3>
+        <Link to='/newplant'>
+          <button className='addPlantBtn'>Add a plant</button>
+        </Link>
+        </div>
         <ul>
-        {this.props.store.plant.map( item =>
-            <li className="plantList" key={item.id}> <img width="200px" src={item.image}></img> <div className='plantName'>{item.plant}</div></li>)}
-            </ul>
+          {this.props.store.plant.map((item) => (
+            <div className='singlePlant'>
+            <li className='plantList' key={item.id}>
+              {' '}
+              <img width='200px' height='100px' src={item.image}></img>{' '}
+             <div className='plantName'> {item.plant}</div>
+              <div>Last watered on: {`${item.last_watered}`.slice(0, 10)}</div>
+            </li>
+            </div>
+          ))}
+        </ul>
+        </div>
       </div>
     );
   }

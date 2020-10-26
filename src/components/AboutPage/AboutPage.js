@@ -1,5 +1,5 @@
 import React from 'react';
-import './AboutPage.css'
+import './AboutPage.css';
 
 // This is one of our simplest components
 // It doesn't have local state, so it can be a function component.
@@ -7,14 +7,17 @@ import './AboutPage.css'
 // or even care what the redux state is, so it doesn't need 'connect()'
 
 const AboutPage = () => (
-  <div className="container">
+  <div className='container'>
     <div>
       <h1>About Planter</h1>
       <h4>A House Plant Planner</h4>
       <p>
-        Planter is an application to help house plant owners keep track
-        of their various plants. Favorite plants to save for later or find
-        new plants to get on the search page.
+        Planter is an application to help house plant owners keep track of their
+        various plants!
+      </p>
+      <p>
+        Planter was developed by Leah Brenny using React, Redux, Postgresql, Axios, HTML, CSS, and
+        Javascript.
       </p>
       <h3>Enjoy!</h3>
     </div>

@@ -1,20 +1,48 @@
 .plantContainer{
         margin: auto;
-        width: 60%;
+        width: 70%;
         padding: 10px;
         text-align: center;
-        border-radius: 10px;
+        border-radius: 15px;
         background-color: #aebea2d3;
+        align-content: center;
+        display: center;
     }
 
 .plantList{
         list-style: none;
-        
 }
 
 .plantName{
-        float: right;
         display: inline;
-        margin-right: 20%;
         margin-top: 10%;
+        text-align: center;
+        font-weight: bold;
 }
+
+.singlePlant{
+        background-color: #82948b;
+        margin: 10px;
+        padding: 10px;
+        border-radius: 10px;
+        width: 23%;
+        display: inline-flex;
+        height: 200px;
+}
+
+.plantHeader{
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+}
+
+.addPlantBtn{
+        background-color: #AEBEA2;
+        border-radius: 5px;
+        margin-left: 350px;
+        margin-right: 10px;
+}
+ ul{
+        margin-left: 0px;
+        padding-left: 0%;
+ }

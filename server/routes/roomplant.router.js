@@ -11,11 +11,10 @@ router.get('/:id', (req, res) => {
   let query = `SELECT  "plant"."plant_img" as "image",
   "plant"."plant_name" as "plant",
   "plant"."id" as "id",
-  "plant"."favorite" as "favorite"
+  "plant"."last_watered" as "last_watered"
   FROM "user"
   JOIN "room" ON "user"."id" = "room"."user_id"
-  JOIN "room_plant" ON "room"."id" = "room_plant"."room_id"
-  JOIN "plant" ON "plant"."id" = "room_plant"."plant_id"
+  JOIN "plant" ON "plant"."room_id" = "room"."id"
   WHERE "room"."id" = $1;`;
   pool
     .query(query, [req.params.id])

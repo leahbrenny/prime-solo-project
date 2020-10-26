@@ -14,8 +14,6 @@ class NewRoomPage extends Component {
     newRoom: {
       user_id: this.props.store.user.id,
       roomName: '',
-      sunlight: '',
-      humidity: '',
     },
   };
 
@@ -50,7 +48,8 @@ class NewRoomPage extends Component {
                 Enter the name of the room you want to create
               </span>
             </div>
-            <div className='tooltip'>
+            {/* uncomment to add sunlight and humidity inputs */}
+            {/* <div className='tooltip'>
               <input
                 min='0'
                 max='10'
@@ -74,12 +73,12 @@ class NewRoomPage extends Component {
               <span class='tooltiptext'>
                 Humidity is a percent from 0% to 100%.
               </span>
-            </div>
+            </div> */}
             <button type='submit'>Create Room</button>
           </form>
         </div>
         <Link to='/rooms'>
-          <button className="cancelBtn">Cancel</button>
+          <button className='cancelBtn'>Cancel</button>
         </Link>
       </div>
     );

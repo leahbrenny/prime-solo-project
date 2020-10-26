@@ -2,12 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { Link } from 'react-router-dom';
-import '../NewRoomPage/NewRoomPage.css'
+import '../NewRoomPage/NewRoomPage.css';
 
-// Basic class component structure for React with default state
-// value setup. When making a new component be sure to replace
-// the component name TemplateClass with the name for the new
-// component.
 class EditRoomPage extends Component {
   state = {
     heading: 'Edit Room',
@@ -15,16 +11,15 @@ class EditRoomPage extends Component {
       user_id: this.props.store.user.id,
       room_id: '',
       roomName: '',
-      sunlight: '',
-      humidity: '',
+      // sunlight: '',
+      // humidity: '',
     },
   };
 
   handleSubmit = () => {
     console.log('tried to edit a room');
-    this.props.dispatch({ type: 'UPDATE_ROOM', 
-    payload: this.state.newRoom,
-    });
+    this.props.dispatch({ type: 'UPDATE_ROOM', payload: this.state.newRoom });
+    this.props.dispatch({type: 'FETCH_ROOMS', payload: this.props.store.user.id})
   };
 
   handleChangeFor = (propertyName, event) => {
@@ -33,22 +28,23 @@ class EditRoomPage extends Component {
         ...this.state.newRoom,
         // computed property
         [propertyName]: event.target.value,
-        room_id: this.props.store.editRoom[0].id
+        room_id: this.props.store.editRoom[0].id,
       },
     });
   };
 
   render() {
     console.log('edit room initial store and state', this.props, this.state);
-    
+
     return (
       <div>
         <h2>{this.state.heading}</h2>
         <div className='newRoomForm'>
           <form onSubmit={this.handleSubmit}>
-            <div className="oldRoomInfo">
-          {this.props.store.editRoom.map((item) => (
-                  <p>{item.name}</p>))}
+            <div className='oldRoomInfo'>
+              {this.props.store.editRoom.map((item) => (
+                <p>{item.name}</p>
+              ))}
             </div>
             <div className='tooltip'>
               <input
@@ -56,10 +52,10 @@ class EditRoomPage extends Component {
                 placeholder='Updated Room Name'
                 onChange={(event) => this.handleChangeFor('roomName', event)}
               />
-              <span className='tooltiptext'>
-                Edit the name of your room.
-              </span>
-            </div>
+              <span className='tooltiptext'>Edit the name of your room.</span>
+
+              {/* add back in for humidity and sunlight edit */}
+              {/* </div>
             <div className="oldRoomInfo">
           {this.props.store.editRoom.map((item) => (
                   <p>{item.sunlight}</p>))}
@@ -92,13 +88,13 @@ class EditRoomPage extends Component {
               />
               <span className='tooltiptext'>
               Humidity is a percent from 0% to 100%.
-              </span>
+              </span> */}
             </div>
             <button type='submit'>Update Room</button>
           </form>
         </div>
         <Link to='/rooms'>
-          <button className="cancelBtn">Cancel</button>
+          <button className='cancelBtn'>Cancel</button>
         </Link>
       </div>
     );

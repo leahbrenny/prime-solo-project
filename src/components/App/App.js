@@ -14,16 +14,15 @@ import Footer from '../Footer/Footer';
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 import PlantsPage from '../PlantsPage/PlantsPage';
 import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/UserPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import FavoritesPage from '../FavoritesPage/FavoritesPage';
 import './App.css';
 import RoomsPage from '../RoomsPage/RoomsPage';
-import SearchPage from '../SearchPage/SearchPage';
 import NewRoomPage from '../NewRoomPage/NewRoomPage';
 import EditRoomPage from '../EditRoomPage/EditRoomPage';
+import NewPlantPage from '../NewPlantPage/NewPlantPage';
+import EditPlantPage from '../EditPlantPage/EditPlantPage';
 
 class App extends Component {
   componentDidMount() {
@@ -51,12 +50,6 @@ class App extends Component {
             Visiting localhost:3000/user will show the UserPage if the user is logged in.
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
-            <ProtectedRoute
-              // logged in shows UserPage else shows LoginPage
-              exact
-              path='/user'
-              component={UserPage}
-            />
 
             <ProtectedRoute
               // logged in shows InfoPage else shows LoginPage
@@ -65,13 +58,6 @@ class App extends Component {
               component={RoomsPage}
             />
 
-            {/* <ProtectedRoute
-              // logged in shows InfoPage else shows LoginPage
-              exact
-              path='/favorites'
-              component={FavoritesPage}
-            /> */}
-
             <ProtectedRoute
               // logged in shows InfoPage else shows LoginPage
               exact
@@ -79,56 +65,63 @@ class App extends Component {
               component={PlantsPage}
             />
 
-            <ProtectedRoute
-              // logged in shows InfoPage else shows LoginPage
-              exact
-              path='/search'
-              component={SearchPage}
-            />
-
             {/* When a value is supplied for the authRedirect prop the user will
             be redirected to the path supplied when logged in, otherwise they will
             be taken to the component and path supplied. */}
             <ProtectedRoute
               // with authRedirect:
-              // - if logged in, redirects to "/user"
+              // - if logged in, redirects to "/plants"
               // - else shows LoginPage at /login
               exact
               path='/login'
               component={LoginPage}
-              authRedirect='/user'
+              authRedirect='/plants'
             />
             <ProtectedRoute
               // with authRedirect:
-              // - if logged in, redirects to "/user"
+              // - if logged in, redirects to "/plants"
               // - else shows RegisterPage at "/registration"
               exact
               path='/registration'
               component={RegisterPage}
-              authRedirect='/user'
+              authRedirect='/plants'
             />
             <ProtectedRoute
               // with authRedirect:
-              // - if logged in, redirects to "/user"
+              // - if logged in, redirects to "/plants"
               // - else shows LandingPage at "/home"
               exact
               path='/home'
               component={LandingPage}
-              authRedirect='/user'
+              authRedirect='/plants'
             />
 
             <ProtectedRoute
-              // logged in shows InfoPage else shows LoginPage
+              // logged in shows InfoPage else shows NewRoomPage
               exact
               path='/newroom'
               component={NewRoomPage}
             />
 
             <ProtectedRoute
-              // logged in shows InfoPage else shows LoginPage
+              // logged in shows InfoPage else shows EditRoomPage
               exact
               path='/editroom'
               component={EditRoomPage}
+            />
+
+<ProtectedRoute
+              // logged in shows InfoPage else shows EditRoomPage
+              exact
+              path='/editplant'
+              component={EditPlantPage}
+            />
+
+            <ProtectedRoute
+              // logged in shows InfoPage else shows NewPlantPage
+              exact
+              path='/newplant'
+              component={NewPlantPage}
             />
 
             {/* If none of the other routes matched, we will show a 404. */}
