@@ -1,0 +1,26 @@
+.newPlantContainer{
+    margin: auto;
+    width: 80%;
+    padding: 10px;
+    text-align: center;
+    background: #a4b4aca4;
+    color: rgb(34, 32, 32);
+    border-radius: 15px;
+}
+
+.roomSelectInput{
+    width: 110px;
+}
+
+.roomSelect{
+    margin-right: 20%;
+}
+
+.newPlantInputs{
+    margin-right: 20%;
+}
+
+.addNewPlantBtn{
+    background-color: #AEBEA2;
+        border-radius: 5px;
+}

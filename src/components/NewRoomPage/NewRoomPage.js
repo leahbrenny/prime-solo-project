@@ -20,6 +20,7 @@ class NewRoomPage extends Component {
   handleSubmit = () => {
     console.log('tried to make a new room', this.state.newRoom);
     this.props.dispatch({ type: 'ADD_ROOM', payload: this.state.newRoom });
+    this.props.history.push('/rooms')
   };
 
   handleChangeFor = (propertyName, event) => {
@@ -48,38 +49,12 @@ class NewRoomPage extends Component {
                 Enter the name of the room you want to create
               </span>
             </div>
-            {/* uncomment to add sunlight and humidity inputs */}
-            {/* <div className='tooltip'>
-              <input
-                min='0'
-                max='10'
-                type='number'
-                placeholder='Sunlight'
-                onChange={(event) => this.handleChangeFor('sunlight', event)}
-              />
-              <span class='tooltiptext'>
-                Sunlight can be a value from 0 to 10 for how bright
-                your room is.
-              </span>
-            </div>
-            <div className='tooltip'>
-              <input
-                min='0'
-                max='100'
-                type='number'
-                placeholder='Humidity'
-                onChange={(event) => this.handleChangeFor('humidity', event)}
-              />
-              <span class='tooltiptext'>
-                Humidity is a percent from 0% to 100%.
-              </span>
-            </div> */}
             <button type='submit'>Create Room</button>
           </form>
-        </div>
         <Link to='/rooms'>
           <button className='cancelBtn'>Cancel</button>
         </Link>
+        </div>
       </div>
     );
   }

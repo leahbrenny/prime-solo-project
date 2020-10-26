@@ -4,14 +4,16 @@
 }
 
 .roomReturn{
-    width: 60%;
-    margin-top: 50px;
-    margin-left: 20%;
-    background: #A4B4AC;
-    border: 2px solid #AEBEA2;
-    padding-left: 0px;
-    align-content: center;
-    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+        width: 70%;
+        padding: 10px;
+        padding-top: 30px;
+        text-align: center;
+        border-radius: 15px;
+        background-color: #a4b4aca4;
+        align-content: center;
+        display: center;
 }
 
 .editDeleteContainer{
@@ -26,13 +28,15 @@
 float: left;
 background-color: #AEBEA2;
 border-radius: 5px;
+margin-top: 10px;
 }
 
 .newRoomBtn{
 float: right;
 background-color: #AEBEA2;
 border-radius: 5px;
-margin-right: 10%
+margin-right: 18%;
+margin-top: 10px;
 }
 
 .roomSelectInput{
@@ -40,24 +44,16 @@ float: left;
 background-color: #AEBEA2;
 border-radius: 5px;
 margin-left: 10%;
+margin-top: 10px;
+padding: 1px;
+border: 2px solid grey;
 }
 
 .deleteBtn{
 float: right;
 background-color: #AEBEA2;
 border-radius: 5px;
-}
-
-.pageHeading{
-    color: #E6D5AA;
-}
-
-.roomPageContainer{
-    background: #51624fd3;
-    padding-bottom: 50px;
-    margin-left: 10%;
-    margin-right: 10%;
-    border-radius: 8px;
+margin-top: 10px;
 }
 
 img{
@@ -68,4 +64,42 @@ img{
 
 li{
 list-style: none;
+}
+
+ul{
+    margin-left: 0px;
+    padding-left: 0%;
+}
+
+.singleRoomPlant{
+    background-color: #AEBEA2;
+        margin: 10px;
+        margin-top: 30px;
+        padding: 10px;
+        border-radius: 10px;
+        width: 23%;
+        display: inline-flex;
+        height: 270px;
+        border: 2px solid gray;
+}
+
+.roomPlantEditBtn{
+    background-color: #51624fd3;
+        border-radius: 5px;
+        float: left;
+        margin-top: 5px;
+}
+
+.roomPlantWaterBtn{
+    background-color: #51624fd3;
+        border-radius: 5px;
+        float: right;
+        margin-top: 5px;
+}
+
+.deletePlantBtn{
+    background-color: #51624fd3;
+        border-radius: 5px;
+        margin-bottom: 5px;
+        float: right;
 }

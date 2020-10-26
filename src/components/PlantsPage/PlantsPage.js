@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 // component.
 class PlantsPage extends Component {
   state = {
-    heading: 'Your Plants',
+    heading: 'My Plants',
   };
 
   render() {
@@ -29,9 +29,9 @@ class PlantsPage extends Component {
             <div className='singlePlant'>
             <li className='plantList' key={item.id}>
               {' '}
-              <img width='200px' height='100px' src={item.image}></img>{' '}
+              <img width='200px' height='150px' src={item.image}></img>{' '}
              <div className='plantName'> {item.plant}</div>
-              <div>Last watered on: {`${item.last_watered}`.slice(0, 10)}</div>
+              <div>Last watered on:</div> {`${item.last_watered}`.slice(0, 10)}
             </li>
             </div>
           ))}

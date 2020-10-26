@@ -6,14 +6,14 @@ import { Link } from 'react-router-dom';
 
 class RoomsPage extends Component {
   state = {
-    heading: 'Rooms Page',
-    displayedRoomId: null,
+    heading: 'My Rooms',
+    displayedRoomId: '',
   };
 
   componentDidMount = () => {
     this.props.dispatch({
       type: 'FETCH_ROOMS',
-      payload: this.props.store.user.id
+      payload: this.props.store.user.id,
     });
     this.props.dispatch({
       type: 'FETCH_ROOMPLANTS',
@@ -21,16 +21,16 @@ class RoomsPage extends Component {
     });
   };
 
-  onRoomChange = (event, property) => {
+  onRoomChange = (event, roomId) => {
     console.log('tried to select a room', event.target.value);
     this.props.dispatch({
       type: 'FETCH_ROOMPLANTS',
       payload: event.target.value,
     });
-    this.setState({
-      displayedRoomId: event.target.value,
+    this.props.dispatch({
+      type: 'FETCH_EDIT_ROOM',
+      payload: Number(event.target.value),
     });
-    this.editRoomValues();
   };
 
   confirmDeleteRoom = () => {
@@ -38,13 +38,14 @@ class RoomsPage extends Component {
       console.log('pressed ok');
       this.props.dispatch({
         type: 'DELETE_ROOM',
-        payload: this.state.displayedRoomId,
+        payload: this.props.store.editRoom[0].id,
       });
       this.props.dispatch({
         type: 'FETCH_ROOMS',
       });
+      this.componentDidMount();
     } else {
-      console.log('payload', this.state.displayedRoomId);
+      console.log('payload', this.props.store.editRoom[0].id);
 
       console.log('pressed cancel');
     }
@@ -66,19 +67,19 @@ class RoomsPage extends Component {
       type: 'FETCH_ROOMPLANTS',
       payload: this.state.displayedRoomId,
     });
-  }
+  };
 
   waterPlant = (event, id) => {
-   let date = new Date();
-   console.log('current date', date);
+    let date = new Date();
+    console.log('current date', date);
     if (window.confirm(`Did you want to water this plant?`, id)) {
       console.log('pressed ok');
       this.props.dispatch({
         type: 'WATER_PLANT',
-        payload: { 
-          id: id, 
-          date: date
-        }
+        payload: {
+          id: id,
+          date: date,
+        },
       });
     } else {
       console.log('payload', id);
@@ -88,38 +89,49 @@ class RoomsPage extends Component {
       type: 'FETCH_ROOMPLANTS',
       payload: this.state.displayedRoomId,
     });
-  }
+  };
 
   editRoomValues = () => {
     this.props.dispatch({
       type: 'FETCH_EDIT_ROOM',
-      payload: Number(this.state.displayedRoomId)
-    })
-  }
+      payload: Number(this.state.displayedRoomId),
+    });
+  };
 
-  updateEditPlant = (event, id) => {
-    this.props.dispatch({
+  updateEditPlant = async (event, plantid) => {
+    console.log('id', plantid);
+    
+   await this.props.dispatch({
       type: 'FETCH_EDIT_PLANT',
-      payload: Number(id)
-    })
-    // this.props.history.push('/editplant')
-    // this.redirectEditPlant();
-  }
+      payload: Number(plantid),
+    });
+    let promise = new Promise((resolve, reject) => {
+      setTimeout(() => resolve("done!"), 1000)
+    });
+  
+    let result = await promise; // wait until the promise resolves (*)
+  
+    this.redirectEditPlant(result);
+  };
 
-  // redirectEditPlant = () => {
-  //   this.props.history.push('/editplant')
-  // }
+  redirectEditPlant = () => {
+    this.props.history.push('/editplant')
+  }
 
   render() {
     console.log('rooms page store', this.props.store);
     return (
-      <div className="roomPageContainer">
-        <h2 className="pageHeading">{this.state.heading}</h2>
+      <div className='roomPageContainer'>
+        <h2 className='pageHeading'>{this.state.heading}</h2>
+        <div>
         <div className='roomSelect'>
           {this.props.store.room === undefined ? (
             <div>you didn't see anything</div>
           ) : (
-            <select className="roomSelectInput" onChange={(event) => this.onRoomChange(event, 'roomId')}>
+            <select
+              className='roomSelectInput'
+              onChange={(event) => this.onRoomChange(event, this.value)}
+            >
               {this.props.store.room.map((item) => (
                 <option key={item.id} value={item.id}>
                   {item.room}
@@ -127,34 +139,59 @@ class RoomsPage extends Component {
               ))}
             </select>
           )}
-          <div>
+          </div>
+          
             <Link to='/newroom'>
-              <button className="newRoomBtn">+New Room</button>
+              <button className='newRoomBtn'>+New Room</button>
             </Link>
             <Link to='/editroom'>
-            <button className="editBtn">Edit Room</button>
-          </Link>
-          <button className="deleteBtn" onClick={() => this.confirmDeleteRoom}>Delete Room</button>
+              <button className='editBtn'>Edit Room</button>
+            </Link>
+            <button
+              className='deleteBtn'
+              onClick={(event) => this.confirmDeleteRoom(event)}
+            >
+              Delete Room
+            </button>
           </div>
-        </div>
         <div className='roomReturn'>
           <ul>
             {this.props.store.roomplant.map((item) => (
-              <li key={item.id}>
-                {' '}
-                <img width='200px' src={item.image}></img>
-                {item.plant}
-                Last watered on: {`${item.last_watered}`.slice(0, 10)}
-                <button id="deletePlantBtn" onClick={(event) => this.deletePlant(event, item.id)}>Delete</button>
-                <button value={item.id} onClick={(event) => this.updateEditPlant(event, item.id)}>Edit</button>
-                <button id="waterPlantBtn" onClick={(event) => this.waterPlant(event, item.id)}>Watered Today</button>
-              </li>
+              <div className='singleRoomPlant'>
+                <li key={item.id} className='plantList'>
+                  <button
+                    id='deletePlantBtn'
+                    className='deletePlantBtn'
+                    onClick={(event) => this.deletePlant(event, item.id)}
+                  >
+                    Delete
+                  </button>
+                  <img width='200px' height='150px' src={item.image}></img>
+                  <div className='plantName'> {item.plant}</div>
+                  <div>Last watered on:</div>{' '}
+                  {`${item.last_watered}`.slice(0, 10)}
+                  <div className='plantBtns'>
+                    <button
+                      className='roomPlantEditBtn'
+                      value={item.id}
+                      onClick={(event) => this.updateEditPlant(event, item.id)}
+                    >
+                      Edit
+                    </button>
+                    <button
+                      className='roomPlantWaterBtn'
+                      id='waterPlantBtn'
+                      onClick={(event) => this.waterPlant(event, item.id)}
+                    >
+                      Watered
+                    </button>
+                  </div>
+                </li>
+              </div>
             ))}
           </ul>
         </div>
-        <div className="editDeleteContainer">
-          
-        </div>
+        <div className='editDeleteContainer'></div>
       </div>
     );
   }

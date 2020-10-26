@@ -1,3 +1,4 @@
+import { useRadioGroup } from '@material-ui/core';
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
@@ -18,9 +19,6 @@ function* updatePlant(action) {
     method: 'PUT',
     url: `/api/editplant/${action.payload}`,
     data: action.payload
-  })
-  yield put({
-    type:'FETCH_PLANTS'
   })
 }
 

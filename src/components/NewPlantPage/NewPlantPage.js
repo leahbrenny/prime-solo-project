@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import './NewPlantPage.css';
 
 // Basic class component structure for React with default state
 // value setup. When making a new component be sure to replace
@@ -46,6 +47,7 @@ class NewPlantPage extends Component {
         <h2>{this.state.heading}</h2>
         <div className="newPlantContainer">
         <form onSubmit={this.handleSubmit}>
+        <div className='newPlantInputs'>
         <div className='roomSelect'>
           {this.props.store.room === undefined ? (
             <div>you didn't see anything</div>
@@ -62,6 +64,7 @@ class NewPlantPage extends Component {
             </select>
           )}
         </div>
+        
           <input
             type='text'
             placeholder='Plant Name'
@@ -72,7 +75,8 @@ class NewPlantPage extends Component {
             placeholder='Image Url'
             onChange={(event) => this.onChange('image', event)}
           ></input>
-          <button type='submit'>Add this plant!</button>
+          </div>
+          <button className='addNewPlantBtn' type='submit'>Add Plant</button>
         </form>
         </div>
       </div>

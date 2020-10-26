@@ -2,24 +2,24 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import { Link } from 'react-router-dom';
-import '../NewRoomPage/NewRoomPage.css';
+import './EditPlantPage.css';
 
 class EditPlantPage extends Component {
   state = {
-    heading: 'Edit Room',
+    heading: 'Edit Plant',
     newPlant: {
       user_id: this.props.store.user.id,
       plant_id: '',
       plant_name: '',
       plant_img: '',
-      last_watered: ''
+      last_watered: '',
     },
   };
 
   handleSubmit = () => {
     console.log('tried to edit a plant');
     this.props.dispatch({ type: 'UPDATE_PLANT', payload: this.state.newPlant });
-    // this.props.history.push('/rooms');
+    this.props.history.push('/rooms');
   };
 
   handleChangeFor = (propertyName, event) => {
@@ -39,7 +39,7 @@ class EditPlantPage extends Component {
     return (
       <div>
         <h2>{this.state.heading}</h2>
-        <div className='newPlantForm'>
+        <div className='editPlantForm'>
           <form onSubmit={this.handleSubmit}>
             <div className='oldPlantInfo'>
               {this.props.store.editPlant.map((item) => (
@@ -56,7 +56,7 @@ class EditPlantPage extends Component {
             </div>
             <div className='oldPlantInfo'>
               {this.props.store.editPlant.map((item) => (
-                <img width='200px' src={item.img}></img>
+                <img className='editPlantImage' width='200px' src={item.img}></img>
               ))}
             </div>
             <div className='tooltip'>
@@ -76,16 +76,20 @@ class EditPlantPage extends Component {
               <input
                 type='date'
                 placeholder='Updated Last Watered Date'
-                onChange={(event) => this.handleChangeFor('last_watered', event)}
+                onChange={(event) =>
+                  this.handleChangeFor('last_watered', event)
+                }
               />
-              <span className='tooltiptext'>Edit when you last watered the plant.</span>
+              <span className='tooltiptext'>
+                Edit when you last watered the plant.
+              </span>
             </div>
-            <button type='submit'>Update Plant</button>
+            <button className='updatePlantBtn' type='submit'>Update Plant</button>
           </form>
-        </div>
-        <Link to='/rooms'>
+          <Link to='/rooms'>
           <button className='cancelBtn'>Cancel</button>
         </Link>
+        </div>
       </div>
     );
   }

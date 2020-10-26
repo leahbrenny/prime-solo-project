@@ -27,7 +27,7 @@
         border-radius: 10px;
         width: 23%;
         display: inline-flex;
-        height: 200px;
+        height: 230px;
 }
 
 .plantHeader{
@@ -39,10 +39,6 @@
 .addPlantBtn{
         background-color: #AEBEA2;
         border-radius: 5px;
-        margin-left: 350px;
+        margin-left: 480px;
         margin-right: 10px;
 }
- ul{
-        margin-left: 0px;
-        padding-left: 0%;
- }
