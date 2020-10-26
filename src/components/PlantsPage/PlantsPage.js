@@ -29,7 +29,7 @@ class PlantsPage extends Component {
             <div className='singlePlant'>
             <li className='plantList' key={item.id}>
               {' '}
-              <img width='200px' height='150px' src={item.image}></img>{' '}
+              <img width='200px' height='180px' src={item.image}></img>{' '}
              <div className='plantName'> {item.plant}</div>
               <div>Last watered on:</div> {`${item.last_watered}`.slice(0, 10)}
             </li>
