@@ -43,12 +43,12 @@ class RoomsPage extends Component {
       this.props.dispatch({
         type: 'FETCH_ROOMS',
       });
-      this.componentDidMount();
     } else {
       console.log('payload', this.props.store.editRoom[0].id);
 
       console.log('pressed cancel');
     }
+    this.componentDidMount();
   };
 
   deletePlant = (event, id) => {
@@ -67,6 +67,7 @@ class RoomsPage extends Component {
       type: 'FETCH_ROOMPLANTS',
       payload: this.state.displayedRoomId,
     });
+    this.componentDidMount();
   };
 
   waterPlant = (event, id) => {
@@ -89,6 +90,7 @@ class RoomsPage extends Component {
       type: 'FETCH_ROOMPLANTS',
       payload: this.state.displayedRoomId,
     });
+    this.componentDidMount();
   };
 
   editRoomValues = () => {

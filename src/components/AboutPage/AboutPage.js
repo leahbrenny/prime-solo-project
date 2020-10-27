@@ -19,6 +19,9 @@ const AboutPage = () => (
         Planter was developed by Leah Brenny using React, Redux, Postgresql, Axios, HTML, CSS, and
         Javascript.
       </p>
+      <p>
+        Future updates may include: Image upload and Google search API integration.
+      </p>
       <h3>Enjoy!</h3>
     </div>
   </div>
